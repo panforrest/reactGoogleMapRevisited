@@ -27536,7 +27536,10 @@ exports.default = function (props) {
 								'div',
 								{ className: 'nav-sidebar-column', style: { padding: 0 } },
 								_react2.default.createElement(_custom.Map, {
-										containerElement: _react2.default.createElement('div', { style: { height: 100 + '%' } }), mapElement: _react2.default.createElement('div', { style: { height: 100 + '%' } }) })
+										center: { lat: 40.728199, lng: -73.9894738 },
+										zoom: 16,
+										containerElement: _react2.default.createElement('div', { style: { height: 100 + '%' } }),
+										mapElement: _react2.default.createElement('div', { style: { height: 100 + '%' } }) })
 						)
 				),
 				_react2.default.createElement(
@@ -27686,8 +27689,8 @@ var Map = function (_Component) {
       return _react2.default.createElement(
         _reactGoogleMaps.GoogleMap,
         {
-          defaultZoom: 3,
-          defaultCenter: { lat: -25.363883, lng: 131.044922 } },
+          defaultZoom: this.props.zoom,
+          defaultCenter: this.props.center },
         markers.map(function (marker, index) {
           return _react2.default.createElement(_reactGoogleMaps.Marker, marker);
         })

@@ -8,8 +8,8 @@ class Map extends Component {
 
     return(
       <GoogleMap
-        defaultZoom={3}
-        defaultCenter={{ lat: -25.363883, lng: 131.044922}}>
+        defaultZoom={this.props.zoom}
+        defaultCenter={this.props.center}>
         {markers.map((marker, index) => (<Marker {...marker} />)
 
         )}
