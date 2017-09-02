@@ -1,15 +1,7 @@
 	    // <Sidebar selectElement={this.selectElement.bind(this)} />
 
 import React from 'react'
-// import Sidebar from './Sidebar'
-// import Form from './Form'
-// import Feature from './Feature'
-// import Footer from './Footer'
-// import Table from './Table'
-// import Box from './Box'
-// import Dropdown from './Dropdown'
-// import Pricing from './Pricing'
-
+import { Map } from '../custom'
 import { Sidebar, Form, Feature, Footer, Table, Box, Dropdown, Pricing } from '../../theme'
 
 // images:
@@ -22,8 +14,27 @@ export default (props) => {
   return(
 
   	<div>
-	    <Sidebar />
+	    <div className="nav-container nav-container--sidebar">
+		  <div className="nav-sidebar-column">
+		    <Map />
+		  </div>
+		</div>
 	    <div className="main-container">
+
+          <section className="text-center">
+            <div className="container">
+              <div className="row">
+                <h2 className="type--uppercase">
+                  <em>
+                    <strong>T</strong>
+                  </em>
+                </h2>
+                  <Form />
+              </div>
+            </div>
+
+          </section>
+
 	        <section className="imagebg image--light cover cover-blocks bg--secondary">
 	            <div className="background-image-holder hidden-xs">
 	                <img alt="background" src={promo1} />
