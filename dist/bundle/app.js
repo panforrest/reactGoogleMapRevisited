@@ -27692,6 +27692,11 @@ var Map = function (_Component) {
       console.log('mapMoved: ' + JSON.stringify(this.state.map.getCenter()));
     }
   }, {
+    key: 'zoomChanged',
+    value: function zoomChanged() {
+      console.log('zoomChanged: ' + this.state.map.getZoom());
+    }
+  }, {
     key: 'mapLoaded',
     value: function mapLoaded(map) {
       // console.log('mapLoaded: '+JSON.stringify(map.getCenter()))
@@ -27711,6 +27716,7 @@ var Map = function (_Component) {
         {
           ref: this.mapLoaded.bind(this),
           onDragEnd: this.mapMoved.bind(this),
+          onZoomChanged: this.zoomChanged.bind(this),
           defaultZoom: this.props.zoom,
           defaultCenter: this.props.center },
         markers.map(function (marker, index) {

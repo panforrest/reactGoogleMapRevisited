@@ -14,6 +14,10 @@ class Map extends Component {
   	console.log('mapMoved: '+JSON.stringify(this.state.map.getCenter()))
   }	
 
+  zoomChanged(){
+  	console.log('zoomChanged: '+this.state.map.getZoom())
+  }
+
   mapLoaded(map){
   	// console.log('mapLoaded: '+JSON.stringify(map.getCenter()))
   	if (this.state.map != null)
@@ -32,6 +36,7 @@ class Map extends Component {
       <GoogleMap
         ref={this.mapLoaded.bind(this)}
         onDragEnd={this.mapMoved.bind(this)}
+        onZoomChanged={this.zoomChanged.bind(this)}
         defaultZoom={this.props.zoom}
         defaultCenter={this.props.center}>
         {markers.map((marker, index) => (<Marker {...marker} />)
