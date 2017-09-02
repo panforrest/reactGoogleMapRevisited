@@ -11,11 +11,17 @@ class Map extends Component {
   }	
 
   mapMoved(){
-  	console.log('mapMoved: ')
+  	console.log('mapMoved: '+JSON.stringify(this.state.map.getCenter()))
   }	
 
   mapLoaded(map){
-  	console.log('mapLoaded: '+JSON.stringify(map.getCenter()))
+  	// console.log('mapLoaded: '+JSON.stringify(map.getCenter()))
+  	if (this.state.map != null)
+  	  return
+
+  	this.setState({
+      map: map
+  	})
 
   }
 

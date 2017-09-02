@@ -27689,12 +27689,17 @@ var Map = function (_Component) {
   _createClass(Map, [{
     key: 'mapMoved',
     value: function mapMoved() {
-      console.log('mapMoved: ');
+      console.log('mapMoved: ' + JSON.stringify(this.state.map.getCenter()));
     }
   }, {
     key: 'mapLoaded',
     value: function mapLoaded(map) {
-      console.log('mapLoaded: ' + JSON.stringify(map.getCenter()));
+      // console.log('mapLoaded: '+JSON.stringify(map.getCenter()))
+      if (this.state.map != null) return;
+
+      this.setState({
+        map: map
+      });
     }
   }, {
     key: 'render',
