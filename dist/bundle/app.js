@@ -27678,10 +27678,25 @@ var Map = function (_Component) {
   function Map() {
     _classCallCheck(this, Map);
 
-    return _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).call(this));
+
+    _this.state = {
+      map: null
+    };
+    return _this;
   }
 
   _createClass(Map, [{
+    key: 'mapMoved',
+    value: function mapMoved() {
+      console.log('mapMoved: ');
+    }
+  }, {
+    key: 'mapLoaded',
+    value: function mapLoaded(map) {
+      console.log('mapLoaded: ' + JSON.stringify(map.getCenter()));
+    }
+  }, {
     key: 'render',
     value: function render() {
       var markers = this.props.markers || [];
@@ -27689,6 +27704,8 @@ var Map = function (_Component) {
       return _react2.default.createElement(
         _reactGoogleMaps.GoogleMap,
         {
+          ref: this.mapLoaded.bind(this),
+          onDragEnd: this.mapMoved.bind(this),
           defaultZoom: this.props.zoom,
           defaultCenter: this.props.center },
         markers.map(function (marker, index) {
